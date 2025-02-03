@@ -9,7 +9,7 @@ always_allow_html: true
 ---
 
 ## Status: Continuing Working Document
-Hi everyone. I’m continuing building my data analysis and R skills. As such, I would love feedback to better improve this project via rexmanglicmot@gmail.com. Any mistakes and misrepresentation of the data are my own. Thank you.
+Hi everyone. I’m continuing building my data analysis and R skills. As such, I would love feedback to better improve this project via rexmanglicmot@gmail.com. Any mistakes and misrepresentation of the data are my own. Thank you!
 
 Things Need to Do/Questions:
 
@@ -439,7 +439,7 @@ ggplot(data8, aes(x=word2, y= n)) +
   theme_classic()
 ```
 
-```{r}
+```{r, warning=FALSE}
 wordcloud(
   words = data7$word,
   freq = data7$n,
@@ -564,7 +564,7 @@ Insights:
 
 Interesting. What does this tell us? There is a mix big of emotions from patients. It's best to try another dictionary. So, let's try 'Loughran'
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 #use data6 as it is the most funneled data
 sentiment_data2 <- data6 %>%
   #used the nrc dictionary

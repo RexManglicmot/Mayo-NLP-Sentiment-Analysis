@@ -2,60 +2,50 @@ Mayo Clinic Yelp Review Text Analysis
 ================
 RexManglicmot
 
--   <a href="#status-continuing-working-document"
-    id="toc-status-continuing-working-document">Status: Continuing Working
-    Document</a>
--   <a href="#introduction" id="toc-introduction">Introduction</a>
--   <a href="#webscraping-yelp-data"
-    id="toc-webscraping-yelp-data">Webscraping Yelp Data</a>
--   <a href="#loading-the-libraries" id="toc-loading-the-libraries">Loading
-    the Libraries</a>
--   <a href="#loading-the-data" id="toc-loading-the-data">Loading the
-    Data</a>
--   <a href="#cleaning-the-data" id="toc-cleaning-the-data">Cleaning the
-    Data</a>
--   <a href="#exploratory-data-analysis"
-    id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
--   <a href="#column-charts-and-wordclouds"
-    id="toc-column-charts-and-wordclouds">Column Charts and WordClouds</a>
--   <a href="#sentiment-positive-and-negative-words"
-    id="toc-sentiment-positive-and-negative-words">Sentiment: Positive and
-    Negative Words</a>
-    -   <a href="#appplications" id="toc-appplications">Appplications</a>
-    -   <a href="#pros" id="toc-pros">Pros</a>
-    -   <a href="#cons" id="toc-cons">Cons</a>
--   <a href="#limitations" id="toc-limitations">Limitations</a>
--   <a href="#conclusions" id="toc-conclusions">Conclusions</a>
--   <a href="#appendix" id="toc-appendix">Appendix</a>
--   <a href="#inspiration-for-this-project"
-    id="toc-inspiration-for-this-project">Inspiration for this project</a>
+- [Status: Continuing Working
+  Document](#status-continuing-working-document)
+- [Introduction](#introduction)
+- [Webscraping Yelp Data](#webscraping-yelp-data)
+- [Loading the Libraries](#loading-the-libraries)
+- [Loading the Data](#loading-the-data)
+- [Cleaning the Data](#cleaning-the-data)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Column Charts and WordClouds](#column-charts-and-wordclouds)
+- [Sentiment: Positive and Negative
+  Words](#sentiment-positive-and-negative-words)
+  - [Appplications](#appplications)
+  - [Pros](#pros)
+  - [Cons](#cons)
+- [Limitations](#limitations)
+- [Conclusions](#conclusions)
+- [Appendix](#appendix)
+- [Inspiration for this project](#inspiration-for-this-project)
 
 ## Status: Continuing Working Document
 
 Hi everyone. I’m continuing building my data analysis and R skills. As
 such, I would love feedback to better improve this project via
 <rexmanglicmot@gmail.com>. Any mistakes and misrepresentation of the
-data are my own.
+data are my own. Thank you!
 
 Things Need to Do/Questions:
 
--   Import and adjust dictionaries + describe and cite them.
--   Fix overall grammar
--   Need to List of the metrics in US News for evaluating hospitals and
-    pick up where they left off or, pick up on what is missing in their
-    analyses.
--   Need to find code to align left on the text column in the cleaning
-    section
--   Learn how to create a US heat map code in the EDA section
--   look for a dictionary that has Male and Female first names and run
-    it against data to see how many of each gender is present in the
-    reviews
--   look for code how to highlight certain columns in a barchart (i.e.,
-    ratings barchart below)
--   Create and cite sources of the benefits of wordclouds
--   Properly center the US News pic on git_document (somehow works fine
-    in RStudio html document?)
--   Add more dictionaries
+- Import and adjust dictionaries + describe and cite them.
+- Fix overall grammar
+- Need to List of the metrics in US News for evaluating hospitals and
+  pick up where they left off or, pick up on what is missing in their
+  analyses.
+- Need to find code to align left on the text column in the cleaning
+  section
+- Learn how to create a US heat map code in the EDA section
+- look for a dictionary that has Male and Female first names and run it
+  against data to see how many of each gender is present in the reviews
+- look for code how to highlight certain columns in a barchart (i.e.,
+  ratings barchart below)
+- Create and cite sources of the benefits of wordclouds
+- Properly center the US News pic on git_document (somehow works fine in
+  RStudio html document?)
+- Add more dictionaries
 
 ## Introduction
 
@@ -717,9 +707,6 @@ wordcloud(
 )
 ```
 
-    ## Warning in wordcloud(words = data7$word, freq = data7$n, max.words = 50, :
-    ## appointment could not be fit on page. It will not be plotted.
-
 ![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 The wordcloud above shows the overall patient word count from the 228
@@ -773,17 +760,11 @@ wordcloud(
   colors = 'red')
 ```
 
-    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50, :
-    ## told could not be fit on page. It will not be plotted.
+    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
+    ## : experience could not be fit on page. It will not be plotted.
 
-    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50, :
-    ## doctor could not be fit on page. It will not be plotted.
-
-    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50, :
-    ## surgeon could not be fit on page. It will not be plotted.
-
-    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50, :
-    ## patients could not be fit on page. It will not be plotted.
+    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
+    ## : appointment could not be fit on page. It will not be plotted.
 
 ![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
@@ -817,17 +798,17 @@ large volume of text and to create a generalization of such.
 
 ### Appplications
 
--   Customer feedback. Understanding user review comments on a web
-    platform (i.e., Twitter)
--   Analyze survey responses
--   Competitor research
+- Customer feedback. Understanding user review comments on a web
+  platform (i.e., Twitter)
+- Analyze survey responses
+- Competitor research
 
 ### Pros
 
--   Diminish the risk of bias from a person investigating comments. As
-    such, it diminish personal perceptions of the data and takes away
-    the person’s mood and other incalculable biases.
--   Quick to implement.
+- Diminish the risk of bias from a person investigating comments. As
+  such, it diminish personal perceptions of the data and takes away the
+  person’s mood and other incalculable biases.
+- Quick to implement.
 
 ### Cons
 
@@ -843,7 +824,15 @@ library(textdata)
 sentiment_data <- data6 %>%
   #used the nrc dictionary
   inner_join(get_sentiments('nrc'))
+```
 
+    ## Warning in inner_join(., get_sentiments("nrc")): Detected an unexpected many-to-many relationship between `x` and `y`.
+    ## ℹ Row 4 of `x` matches multiple rows in `y`.
+    ## ℹ Row 12130 of `y` matches multiple rows in `x`.
+    ## ℹ If a many-to-many relationship is expected, set `relationship =
+    ##   "many-to-many"` to silence this warning.
+
+``` r
 sentiment_data_nrc <- sentiment_data %>%
   count(sentiment) %>%
   mutate(sentiment2 = fct_reorder(sentiment, n))
@@ -863,11 +852,11 @@ Interesting.
 
 Insights:
 
--   Based on the NRC dictionary, majority of the patients expressed the
-    sentiment “positive” in their reviews, which had the most counts,
-    followed by trust.
--   The following four sentiments thereafter, as a group, be categorized
-    as ambiguous and negative.
+- Based on the NRC dictionary, majority of the patients expressed the
+  sentiment “positive” in their reviews, which had the most counts,
+  followed by trust.
+- The following four sentiments thereafter, as a group, be categorized
+  as ambiguous and negative.
 
 Interesting. What does this tell us? There is a mix big of emotions from
 patients. It’s best to try another dictionary. So, let’s try ‘Loughran’
@@ -897,11 +886,11 @@ Even more interesting.
 
 Insights:
 
--   Using this dictionary, we see that many of the reviews a categorized
-    as negative.
--   There is a 2x count of negative vs positive reviews.
--   Uncertainty, litigious, constraining categories could further be
-    included as negative.
+- Using this dictionary, we see that many of the reviews a categorized
+  as negative.
+- There is a 2x count of negative vs positive reviews.
+- Uncertainty, litigious, constraining categories could further be
+  included as negative.
 
 ## Limitations
 
