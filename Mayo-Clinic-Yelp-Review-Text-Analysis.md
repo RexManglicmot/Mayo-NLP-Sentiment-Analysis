@@ -10,7 +10,7 @@ RexManglicmot
 - [Loading the Data](#loading-the-data)
 - [Cleaning the Data](#cleaning-the-data)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Column Charts and WordClouds](#column-charts-and-wordclouds)
+- [WordClouds](#wordclouds)
 - [Sentiment: Positive and Negative
   Words](#sentiment-positive-and-negative-words)
   - [Appplications](#appplications)
@@ -49,62 +49,57 @@ Things Need to Do/Questions:
 
 ## Introduction
 
-<center>
+<p align="center">
+<img src="https://target.scene7.com/is/image/Target/GUEST_1ec18fe8-25da-4ae9-a754-33f87564fdcb?wid=725&hei=725&qlt=80&fmt=webp" width="400"/>
+</p>
 
-![](https://target.scene7.com/is/image/Target/GUEST_1ec18fe8-25da-4ae9-a754-33f87564fdcb?wid=725&hei=725&qlt=80&fmt=webp)
+What is the best hospital in the United States? Which one is closest to
+me? What do real patients have to say about a particular hospital? These
+are just a few of the many questions Americans face as they navigate the
+complex U.S. healthcare system.
 
-</center>
+In 2022, average healthcare spending per person in the U.S. reached
+\$12,530—up from \$11,462 in 2019.[^1] With 6,093 hospitals operating
+across the country,[^2] choosing where to receive care is both a
+personal and financial decision. Unlike single-payer systems in
+countries like Canada, the United Kingdom, or Australia, the U.S.
+healthcare system is a mix of private, public, and nonprofit
+institutions. Consequently, not all hospitals are created equal—some are
+well-resourced and highly regarded, while others struggle with quality
+and access.
 
-What is the best hospital within the US? Which one is the nearest to me?
-Where can find out what patients have to say about this XYZ hospital?
-These questions are sample of many questions as Americans navigate the
-maze of the US private healthcare hospital system. On average, health
-care spending is \$12,530 per person in 2022, which is up from \$11,462
-in 2019.[^1] With a total of 6,093 US hospitals[^2], it leaves many to
-wonder which healthcare system they should put their lives and money on.
-Unlike a single payer system, where the government covers majority of
-healthcare needs for its citizens (i.e. Canada, UK, and Australia), the
-US healthcare system is comprised of private and public conglomarate and
-individual hosptal systems. Therefore, in the US, not all hospitals are
-created equal as some are privately and publicized owned; some do well
-versus some do not.
+To help guide patients, U.S. News & World Report publishes an annual
+ranking of the best hospitals in the United States.[^3] While the list
+evaluates about 4,500 facilities, it does not include every hospital in
+the country. For the 2022–23 rankings, the Mayo Clinic in Rochester,
+Minnesota, was named the \#1 hospital.
 
-There is a need to rank such hospitals. Thus, every year U.S. News
-publishes the best hospitals ranked within the U.S.[^3] Although the
-list does not contain all the hospitals, but contained about 4500. The
-top ranked hospital for 2022-23 is the Mayo Clinic based on U.S. News
-methodology. To gain a better understanding why the Mayo Clinic is \#1
-and to further build upon this study, I decided to use anothe method to
-better understand and use a Text Analysis on comments made by Yelp
-reviewers as a means.
+To gain further insight into what makes the Mayo Clinic exceptional—and
+to complement traditional clinical and administrative metrics—this
+project applies a text analysis approach to patient reviews on Yelp.
+Yelp is a widely used platform for reviewing businesses, including
+healthcare institutions, and offers a unique window into the lived
+experiences of patients.
 
-Thus, this projects aims to understand user reviews through the Yelp
-platform, which is aimed to provide reviews to many businesses,
-including healthcare institutions (both private and public). By
-undergoing this research, there are 3 objectives:
+Objectives This project has three main goals:
 
-1.  Uncover hidden word-themes that reflect the true sentiments by
-    patients that is also reproducible
-2.  Provide a starting point for hospital C-suite to reflect some of the
-    concerns patients have about their facility
-3.  Provide an opportunity for hospitals on the bottom part of the US
-    News list to reflect on their services to patients
+Identify recurring word patterns and themes that reflect authentic
+patient sentiment in a reproducible way.
 
-By using text data, there are an array of methods to deploy.
+Provide actionable insights for hospital administrators to better
+understand the patient experience.
 
-This project is comprised of the following chapters:
+Offer benchmarks for lower-ranked hospitals to reflect on how
+patient-centered services might be improved.
 
-1.  Webscraping Yelp Data
-2.  Loading the Libraries
-3.  Loading the Data
-4.  Cleaning the Data
-5.  Exploratory Data Analysis
-6.  Column Charts and WordClouds
-7.  Sentiment: Positive and Negative Words
-8.  Limitations
-9.  Conclusion
-10. Appendix
-11. Inspiration for this project
+To address these objectives, this report applies a suite of text mining
+methods to analyze unstructured Yelp reviews of the Mayo Clinic.
+
+Report Structure: This project is organized into the following
+sections: 1. Webscraping Yelp Data 2. Loading the Libraries 3. Loading
+the Data 4. Cleaning the Data 5. Exploratory Data Analysis 6. Column
+Charts and WordClouds 7. Sentiment: Positive and Negative Words 8.
+Limitations 9. Conclusion 10. Appendix 11. Inspiration for This Project
 
 ## Webscraping Yelp Data
 
@@ -123,19 +118,21 @@ reviews containing these 4 metrics:
 3.  review rating
 4.  review text
 
-(I decided to exclude photos from the reviewers because of the scope of
-this project to analyze text data.)
+(Photos were excluded from scraping due to the focus on text-based
+analysis.)
 
-After various hours debugging the code and looking at html tags to
-discern appropriate tags to scrape, I was able to obtain all reviews
-within Yelp. Troubleshooting code included unintentionally scraping a
-response from a Mayo Clinic official that accrued in more than the 228
-reviews. A special acknowledgement to Samer Jijjazi for his YouTube
-tutorial in learning how to scrape data from Yelp.[^4] Watching his
-videos greatly helped me get the data needed to webscrape.
+After several hours of debugging and inspecting HTML tags, I
+successfully extracted all 228 reviews. One key challenge was avoiding
+the inclusion of business replies, such as official Mayo Clinic
+responses, which could have inflated the review count. Adjusting the
+scraping logic helped prevent this.
 
-Below is the code used to scrape data. Mayo_Clinic.csv file is available
-within the repository.
+A special acknowledgement to Samer Jijjazi for his YouTube tutorial in
+learning how to scrape data from Yelp.[^4]. Watching his videos greatly
+helped me get the data needed to webscrape.
+
+The code used for scraping is included below. The resulting dataset
+(Mayo_Clinic.csv) is also available in this repository.
 
 ``` r
 #load libraries
@@ -270,9 +267,10 @@ data <- read.csv('Mayo_Clinic.csv')
 
 ## Cleaning the Data
 
-Since the data is loaded, instead of using the function str, let’s
-expand my R code competency by using different functions to view the
-column names and the dimensions of the the data
+Since the dataset has been successfully loaded, we’ll begin by exploring
+its structure. Instead of using the basic str() function, I’ll expand my
+R skills by applying other functions to examine the variable names and
+dimensions of the dataset.
 
 ``` r
 #get the names of the variables
@@ -288,8 +286,9 @@ dim(data)
 
     ## [1] 228   5
 
-Ok, we see that there is the X variable which indexes the observations.
-Let’s get rid of that column and check it if worked.
+From the output, we can see that there is an extra column named X, which
+is simply an index column generated when the CSV file was saved. This
+column is not needed for our analysis, so we’ll remove it.
 
 ``` r
 #remove the X column
@@ -308,8 +307,9 @@ dim(data)
 
     ## [1] 228   4
 
-Good. Now, let’s view the first few rows of the dataset using the head
-function.
+Now that the X column has been removed, we can confirm that the dataset
+contains only the relevant columns: reviewer name, location, rating, and
+review text.
 
 ``` r
 #View first rows of the observations of the data
@@ -338,18 +338,15 @@ length(data$text)
 
     ## [1] 228
 
-At first glance, we see that text column is empty except for the fifth
-observation. we also confirm the count of number of observations in the
-text column. However, we when slide the cursor to the right, we see that
-character strings are aligned right (this is a default function of the
-dataframe). Now, let’s do a left-align to make the dataset easier to
-intepret.
+At first glance, we see that the text column appears empty for some
+early observations, except for the fifth entry. However, the total
+number of observations in the text column confirms that all 228 reviews
+are present.
 
-``` r
-#need to figure out how to align left on the text column
-#wrong code below
-#alignment(data, left = 'left')
-```
+When viewing the data frame in RStudio, the text appears right-aligned
+by default. This alignment is purely a visual artifact of how R prints
+character vectors in console views and does not impact the content or
+structure of the data itself.
 
 Great, now let’s see if there are duplicates AND if there is more than
 one reviewer in the dataset.
@@ -381,8 +378,13 @@ data %>%
     ## 9  Aleyysha A. 1
     ## 10  Alfonso E. 1
 
-We see that there are no duplicates and 5 people gave a review twice, so
-a total of 223 different observations.
+The results show that there are no duplicate rows in the dataset.
+However, five reviewers submitted two reviews each, meaning 5
+individuals account for 10 reviews. This brings the count of unique
+reviewers to 223 out of the 228 total reviews.
+
+This step confirms that while the dataset is nearly one-to-one between
+reviewer and review, there are a few repeat reviewers worth noting.
 
 In cleaning our data, let’s see if there are any NA values and which
 columns.
@@ -401,8 +403,13 @@ sum(is.na(data))
 
     ## [1] 0
 
-As a last round for checking our data, the ratings are scaled from 1 to
-5, let’s check if there any numbers above and below
+The output confirms that there are no missing values (NA) in the
+dataset. All rows across all columns—reviewer name, location, rating,
+and text—are complete and ready for analysis.
+
+As a final check before beginning analysis, we verify that all values in
+the rating column fall within the expected range of 1 to 5. We also
+ensure there are no unexpected characters or text entries in the column.
 
 ``` r
 #quick check to see if below 1 OR above 5
@@ -428,23 +435,17 @@ sum(letters_only(data$rating))
 
     ## [1] 0
 
-Now, that the data is cleaned thoroughly, let’s explore the data.
+The results confirm that 1) No ratings are outside the 1–5 range 2) All
+228 entries are numeric and 3) There are no alphabetic or invalid
+characters in the rating column.
+
+Now that the dataset has been thoroughly validated and cleaned, we’re
+ready to begin exploring the data.
 
 ## Exploratory Data Analysis
 
-One of the first questions that came to mine was where these reviewers
-lived. Are they local residents near the Mayo Clinic or are they
-visting? I think answering this question could provide more detal about
-the reviews. So, let’s take the location column and graph it in the
-context of the US. But first, let’s create a new object for this data
-exploration
-
-``` r
-data_map <- data
-```
-
-The next question is to undertand patient ratings. So, let’s take the a
-summary of that.
+To begin exploring the dataset, we first examine the distribution of
+patient ratings using summary statistics.
 
 ``` r
 #calculate summary statistics
@@ -454,10 +455,13 @@ summary(data$rating)
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##    1.00    1.00    5.00    3.39    5.00    5.00
 
-Looking at the summary statistics we see that the median and the max of
-the list is 5. What this means is that there are more of the 5 “ratings”
-in the list than there are others. The best way to view this, is via the
-barchart.
+From the output, we observe that the median and maximum rating are both
+5, while the mean is approximately 3.39. This suggests that a large
+number of patients gave Mayo Clinic the highest rating, indicating a
+positively skewed distribution.
+
+The best way to visualize this pattern is with a bar chart, which we’ll
+generate in the next step.
 
 ``` r
 #create a barchart to count the values
@@ -470,12 +474,18 @@ ggplot(data, aes(x=rating)) +
         y = 'Count')
 ```
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
-Great. We see visually that there are more 1 and 5 ratings than there
-are 2, 3, or 4. What this means is that patients had extreme views of
-the hospital (with respect to the ratings category); “good” and “not
-good”, so to speak.
+The bar chart clearly shows a polarized distribution in Yelp reviews for
+the Mayo Clinic. The majority of reviews are either 1-star or 5-star,
+with significantly fewer reviews in the middle categories (2, 3, and 4
+stars).
+
+This pattern suggests that patient experiences tend to be highly
+positive or highly negative, rather than moderate. These extremes in
+sentiment indicate that reviewers may be motivated to leave feedback
+only when their experiences are particularly memorable—either very good
+or very poor.
 
 Let’s get the actual values of these counts by building a table.
 
@@ -500,28 +510,42 @@ print(table3)
     ## 4      4     8
     ## 5      5   121
 
-Now we see that for the 1 rating there are 72 reviews and for the 5
-rating there are 121 (about 80%). Numerically, it seems the hospital has
-done relatively well.
+From the table above, we see that 1) 72 reviews gave a rating of 1 star
+and 2) 121 reviews gave a rating of 5 stars. Together, those two
+categories account for nearly 85% of all reviews. This reinforces the
+earlier insight that most patients rated their experience at the Mayo
+Clinic as either very positive or very negative, with relatively few
+moderate experiences in between.
 
-What we can do for the next steps are to separate the 228 reviews into 3
-sections; 1 rating, 5 rating, and overall rating and see what words are
-associated within each. That would be interesting to figure out.
+WORK ON!!!! START What we can do for the next steps are to separate the
+228 reviews into 3 sections; 1 rating, 5 rating, and overall rating and
+see what words are associated within each. That would be interesting to
+figure out. STOP
 
-## Column Charts and WordClouds
+## WordClouds
 
-WordClouds are used to illustrate common words about a subject (Mayo
-Clinic in our case). **Need to fill in more.**
+In this project, wordclouds will be used to illustrate common words
+patients use when reviewing the Mayo Clinic. These visualizations help
+surface emotionally charged, repeated, or thematically important words
+without requiring the reader to sift through hundreds of individual
+reviews. Wordclouds emphasize the most frequently used words in a body
+of text by enlarging them proportionally to their frequency, making them
+ideal for quickly identifying key themes or repeated language.
 
-In order to make a wordcloud, we need to index each word within a given
-sentence per reviwer into a separate observation for counting purposes.
-As a result, the number of observations in our current dataset, 228,
-will increase by a lot. This process is called Tokenizing the data. But,
-first lets trop some irrelevant columns (name, location, and ratings)
-and double check the class and store this into a new object, data2.
+In order to create a wordcloud, we need to break each review into
+individual words and represent each word as a separate observation. This
+transformation allows us to count word frequency across all reviews. As
+a result, the total number of observations will increase significantly
+from the original 228 rows.
+
+This process is known as tokenization—splitting sentences into their
+component words. To begin, we remove unnecessary columns (name,
+location, and rating) and store the cleaned text data in a new object,
+data2. We also verify that the text column is a character type before
+proceeding.
 
 ``` r
-##Tokenize data
+#Tokenize data
 
 #drop irrelevant columns by indexing 
 data2 <- data[-c(1:3)] 
@@ -532,7 +556,9 @@ is.character(data2$text)
 
     ## [1] TRUE
 
-Now let’s break up the sentences into individual words (tokenizing).,
+Output \[1\] TRUE confirms that the column is suitable for tokenization.
+
+Now let’s break up the sentences into individual words (tokenizing).
 
 ``` r
 #tokenize data
@@ -560,12 +586,15 @@ data3%>%
     ## 9   was  449
     ## 10 they  431
 
-Because meanings of an English sentence is an accumulation of words.
-There are certain words that have no substantial meaning (filler words)
-like for example, words like “the, a, an, of, etc.”, so we need to do a
-bit of more data cleaning to make an effective wordcoud. We accomplish
-this task by adding a dictionary that contains stop words via a
-anti-join. Let’s store this into a new object, data4.
+Because the meaning of an English sentence is shaped by the combination
+of its words, it’s important to identify and remove those that do not
+contribute significant meaning—often referred to as “stop words” or
+“filler words” (e.g., “the,” “a,” “an,” “of,” etc.). These words are
+extremely common but do not help us understand the content or sentiment
+of a review. To create a more informative and meaningful wordcloud,
+we’ll clean the tokenized data by removing these stop words using a
+predefined dictionary. We’ll perform this step using an anti-join and
+save the cleaned data into a new object called data4.
 
 ``` r
 #takeout stop words
@@ -594,9 +623,11 @@ data4 %>%
     ## 9      medical  80
     ## 10     patient  80
 
-We see that the words “mayo” and “clinic” are 1st and 2nd most used
-words, respectively. Let’s clean up a bit further by adding these words
-to the dictionary and cbinding it.
+We observe that the words “mayo” and “clinic” are the most frequently
+used terms, ranking 1st and 2nd, respectively. To further refine our
+analysis and generate a more insightful wordcloud, we should consider
+adding these words to the stop word dictionary and removing them from
+the dataset.
 
 ``` r
 custom_stop_words <- tribble(
@@ -642,7 +673,7 @@ data5 %>%
     ## 14        life  51
     ## 15      people  50
 
-Let’s get rid of numbers in the list.
+It worked. So, lets get rid of numbers in the list.
 
 ``` r
 #not interested in numbers, need to filter out
@@ -675,7 +706,17 @@ str(data7)
     ##  $ word: chr  "care" "time" "doctor" "doctors" ...
     ##  $ n   : int  122 106 102 99 93 81 80 80 75 72 ...
 
-Our data is further cleaned and ready to plot!!
+After a series of preprocessing steps—including tokenization, removal of
+stop words, filtering out non-alphabetic tokens, and excluding
+infrequent terms—we arrive at a clean dataset consisting of 659 unique
+words that appeared at least four times in the corpus. These remaining
+words, such as “care,” “time,” and “doctor,” reflect the most meaningful
+and frequently mentioned concepts in the reviews. This cleaned data
+provides a more accurate linguistic representation of the core themes
+discussed by patients, removing filler or non-informative content. With
+this refined dataset, we are now well-positioned to generate insightful
+visualizations, such as word clouds or bar charts, to better understand
+the topics and concerns most commonly raised in relation to Mayo Clinic.
 
 ``` r
 library(ggplot2)
@@ -696,7 +737,7 @@ ggplot(data8, aes(x=word2, y= n)) +
   theme_classic()
 ```
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
 ``` r
 wordcloud(
@@ -707,7 +748,7 @@ wordcloud(
 )
 ```
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
 
 The wordcloud above shows the overall patient word count from the 228
 reviews. Now let’s create two additional wordclouds for those who rated
@@ -761,12 +802,15 @@ wordcloud(
 ```
 
     ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
-    ## : experience could not be fit on page. It will not be plotted.
-
-    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
     ## : appointment could not be fit on page. It will not be plotted.
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
+    ## : department could not be fit on page. It will not be plotted.
+
+    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
+    ## : surgery could not be fit on page. It will not be plotted.
+
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 ``` r
   wordcloud(
@@ -776,7 +820,7 @@ wordcloud(
   colors = 'orange')
 ```
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
 
 Interesting. There is not much of a big difference amongst the three
 groups. There are two insights from this:
@@ -846,7 +890,7 @@ ggplot(sentiment_data_nrc, aes(x= sentiment2, y=n)) +
        y = 'Counts')
 ```
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 Interesting.
 
@@ -880,7 +924,7 @@ ggplot(sentiment_data_loughran, aes(x= sentiment2, y=n)) +
        y = 'Counts')
 ```
 
-![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
 Even more interesting.
 
