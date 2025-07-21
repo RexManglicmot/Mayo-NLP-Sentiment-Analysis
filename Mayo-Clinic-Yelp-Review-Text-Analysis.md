@@ -2,8 +2,6 @@ Mayo Clinic Yelp Review Text Analysis
 ================
 RexManglicmot
 
-- [Status: Continuing Working
-  Document](#status-continuing-working-document)
 - [Introduction](#introduction)
 - [Webscraping Yelp Data](#webscraping-yelp-data)
 - [Loading the Libraries](#loading-the-libraries)
@@ -20,32 +18,6 @@ RexManglicmot
 - [Conclusions](#conclusions)
 - [Appendix](#appendix)
 - [Inspiration for this project](#inspiration-for-this-project)
-
-## Status: Continuing Working Document
-
-Hi everyone. I’m continuing building my data analysis and R skills. As
-such, I would love feedback to better improve this project via
-<rexmanglicmot@gmail.com>. Any mistakes and misrepresentation of the
-data are my own. Thank you!
-
-Things Need to Do/Questions:
-
-- Import and adjust dictionaries + describe and cite them.
-- Fix overall grammar
-- Need to List of the metrics in US News for evaluating hospitals and
-  pick up where they left off or, pick up on what is missing in their
-  analyses.
-- Need to find code to align left on the text column in the cleaning
-  section
-- Learn how to create a US heat map code in the EDA section
-- look for a dictionary that has Male and Female first names and run it
-  against data to see how many of each gender is present in the reviews
-- look for code how to highlight certain columns in a barchart (i.e.,
-  ratings barchart below)
-- Create and cite sources of the benefits of wordclouds
-- Properly center the US News pic on git_document (somehow works fine in
-  RStudio html document?)
-- Add more dictionaries
 
 ## Introduction
 
@@ -805,12 +777,12 @@ wordcloud(
     ## : appointment could not be fit on page. It will not be plotted.
 
     ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
-    ## : department could not be fit on page. It will not be plotted.
-
-    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
-    ## : surgery could not be fit on page. It will not be plotted.
+    ## : hospital could not be fit on page. It will not be plotted.
 
 ![](Mayo-Clinic-Yelp-Review-Text-Analysis_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+
+    ## Warning in wordcloud(words = data_A1T$word, freq = data_A1T$n, max.words = 50,
+    ## : insurance could not be fit on page. It will not be plotted.
 
 ``` r
   wordcloud(
