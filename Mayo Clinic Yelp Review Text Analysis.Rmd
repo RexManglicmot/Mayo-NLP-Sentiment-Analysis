@@ -8,22 +8,6 @@ output:
 always_allow_html: true
 ---
 
-## Status: Continuing Working Document
-Hi everyone. I’m continuing building my data analysis and R skills. As such, I would love feedback to better improve this project via rexmanglicmot@gmail.com. Any mistakes and misrepresentation of the data are my own. Thank you!
-
-Things Need to Do/Questions:
-
-* Import and adjust dictionaries + describe and cite them.
-* Fix overall grammar
-* Need to List of the metrics in US News for evaluating hospitals and pick up where they left off or, pick up on what is missing in their analyses. 
-* Need to find code to align left on the text column in the cleaning section
-* Learn how to create a US heat map code in the EDA section
-* look for a dictionary that has Male and Female first names and run it against data to see how many of each gender is present in the reviews
-* look for code how to highlight certain columns in a barchart (i.e., ratings barchart below)
-* Create and cite sources of the benefits of wordclouds
-* Properly center the US News pic on git_document (somehow works fine in RStudio html document?)
-* Add more dictionaries
-
 ## Introduction
 <p align="center"> <img src="https://target.scene7.com/is/image/Target/GUEST_1ec18fe8-25da-4ae9-a754-33f87564fdcb?wid=725&hei=725&qlt=80&fmt=webp" width="400"/> </p>
 What is the best hospital in the United States? Which one is closest to me? What do real patients have to say about a particular hospital? These are just a few of the many questions Americans face as they navigate the complex U.S. healthcare system.
